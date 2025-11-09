@@ -1,0 +1,253 @@
+* {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+/* Drawer Menu Styles */
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+.drawer-overlay.active {
+  display: block;
+}
+
+.drawer-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background: white;
+  z-index: 50;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.drawer-menu.active {
+  right: 0;
+}
+
+/* Hide drawer on desktop */
+@media (min-width: 768px) {
+  .drawer-menu {
+    display: none !important;
+  }
+
+  .drawer-overlay {
+    display: none !important;
+  }
+}
+
+/* Header Wrapper */
+.header-wrapper {
+  background-image: url(../assets/imgs/header-captin/bg.png);
+  background-repeat: no-repeat;
+  height: 700px;
+  background-size: 100% 100%;
+  position: relative;
+  padding-bottom: 80px;
+  overflow: visible;
+  width: 100%;
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  z-index: 25;
+}
+
+.footer-curved-top {
+  position: relative;
+  padding-top: 50px;
+  margin-top: -40px;
+  z-index: 2;
+}
+
+/* Icon Logo */
+.icon-logo {
+  vertical-align: middle;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  mask: url("../assets/imgs/logo.svg") no-repeat center / contain;
+  background-color: currentColor;
+  content: "";
+}
+
+/* Sharp Divs with Rounded Corners */
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+/* Smooth Transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Shadow Effects */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Daily Commutes Section Shapes */
+.daily-commutes-shape-1 {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  background: #ff882e;
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.daily-commutes-shape-2 {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: #ff882e;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(50px);
+  z-index: 0;
+}
+
+/* Responsive Adjustments */
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.man-pic {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 15.8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/imgs/header-captin/bg-man.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.daily {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/imgs/header-captin/bg-man.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.footer-bg {
+  background-image: url("../assets/imgs/captin/footer-bg.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .daily {
+    width: 100%;
+  }
+  .footer-bg {
+    background-image: url("../assets/imgs/captin/footer-phone-bg.png");
+  }
+  .header-wrapper {
+    background-image: url("../assets/imgs/header-captin/header-captin-phone.png");
+    padding-bottom: 60px;
+    height: 500px !important;
+    background-size: 100% 100%;
+  }
+
+  .header-wrapper::after {
+    bottom: -30px;
+    height: 60px;
+  }
+
+  .section-curved-top {
+    padding-top: 40px;
+    margin-top: -30px;
+  }
+
+  .section-curved-top::before {
+    top: -30px;
+    height: 60px;
+  }
+
+  .footer-curved-top {
+    padding-top: 40px;
+    margin-top: -30px;
+  }
+
+  .footer-curved-top::before {
+    top: -30px;
+    height: 60px;
+  }
+
+  .hero-orange-shape-1 {
+    width: 80%;
+    height: 60%;
+  }
+
+  .hero-orange-shape-2 {
+    width: 40%;
+    height: 30%;
+  }
+}
