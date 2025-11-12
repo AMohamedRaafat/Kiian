@@ -251,3 +251,17 @@ html {
     height: 30%;
   }
 }
+@media (max-width: 480px) {
+  .daily {
+    width: 100%;
+    img:nth-child(2) {
+      right: 1%;
+      width: 100px;
+    }
+    img:nth-child(3) {
+      right: 10%;
+      bottom: 1%;
+      width: 110px;
+    }
+  }
+}
