@@ -151,3 +151,128 @@ nav {
   background-color: currentColor;
   content: "";
 }
+.video-container {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  transition: opacity 0.3s ease, visibility 0.3s ease, max-height 0.3s ease,
+    transform 0.3s ease, margin 0.3s ease;
+}
+
+.video-container.active {
+  opacity: 1;
+  visibility: visible;
+  max-height: 1000px;
+  margin-top: 1rem;
+}
+
+.video-container:hover {
+  transform: translateY(-5px);
+}
+
+.video-container .relative {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+.video-container .relative > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-controls {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.video-control-btn {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  backdrop-filter: blur(10px);
+}
+
+.video-control-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.15);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.video-control-btn.play-btn {
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.98);
+  color: #000;
+  border: none;
+  font-size: 1.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.video-control-btn.play-btn:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.video-views {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  z-index: 15;
+}
+
+.video-title {
+  background: #1f2937;
+  padding: 1.25rem;
+  color: white;
+}
+
+.video-title p {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Desktop video container - always visible on desktop */
+@media (min-width: 768px) {
+  .video-container.desktop-video {
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

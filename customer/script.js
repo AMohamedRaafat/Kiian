@@ -35,11 +35,14 @@ $(document).ready(function () {
         var $item = $(this).closest('.faq-item');
         var $answer = $item.find('.faq-answer');
         var $icon = $(this).find('svg');
+        var hasVideo = $(this).data("video-card") === true;
+        var isActive = $item.hasClass("active-faq");
 
         // Close all other items
         $('.faq-item').not($item).find('.faq-answer').slideUp(300);
         $('.faq-item').not($item).find('svg').removeClass('rotate-180');
         $('.faq-item').not($item).removeClass('active-faq');
+
 
         // Toggle current item
         if ($answer.is(':visible')) {
@@ -51,8 +54,19 @@ $(document).ready(function () {
             $item.addClass('active-faq')
             $icon.addClass('rotate-180');
         }
+        // Show/hide video based on which card is active
+        if (!isActive && hasVideo) {
+            $(".video-container").addClass("active");
+        } else {
+            $(".video-container").removeClass("active");
+        }
     });
-
+    // Initialize video visibility on page load
+    if ($(".faq-question").data("video-card") === true) {
+        $(".video-container").addClass("active");
+    } else {
+        $(".video-container").removeClass("active");
+    }
     // Animate on scroll
     function animateOnScroll() {
         $('.faq-item, .bg-white.rounded-xl').each(function () {
@@ -72,5 +86,8 @@ $(document).ready(function () {
 
     $(window).on('scroll', animateOnScroll);
     animateOnScroll();
+
+
+
 });
 
