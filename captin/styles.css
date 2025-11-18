@@ -265,6 +265,14 @@ html {
     }
   }
 }
+#download {
+  @media (min-width: 768px) {
+    background-image: url("../assets/imgs/captin/download-bg.png");
+    background-size: 70% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+  }
+}
 
 /* Modal Styles */
 .modal-overlay {

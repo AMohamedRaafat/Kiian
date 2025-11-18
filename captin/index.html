@@ -151,7 +151,7 @@
             <div class="relative order-2 md:order-1 z-10 h-[400px]">
               <!-- Large Orange Rounded Shape -->
               <div
-                class="man-pic w-full -bottom-0 sm:-bottom-12 md:-bottom-24 -right-6 md:right-0 h-[500px] max-w-md mx-auto rounded-[35px] p-6 absolute"
+                class="man-pic w-full -bottom-5 sm:-bottom-12 md:-bottom-24 -right-6 md:right-0 h-[500px] max-w-md mx-auto rounded-[35px] p-6 absolute"
               >
                 <!-- Main Image Placeholder -->
                 <div
@@ -243,39 +243,6 @@
                 >
                 <img src="../assets/imgs/fire.svg" alt="Fire" />
               </button>
-              <!-- App Download Buttons -->
-              <div class="flex flex-row mt-5 md:mt-auto gap-2 md:gap-4">
-                <a
-                  href="#"
-                  class="w-[45%] sm:w-[40%] md:w-[auto] bg-white/30 backdrop-blur-sm text-white rounded-xl hover:bg-white md:px-5 px-3 py-2 flex items-center justify-center gap-5 transition font-semibold shadow-lg"
-                >
-                  <div class="flex items-center justify-center">
-                    <img
-                      src="../assets/imgs/play.svg"
-                      alt="Google Play"
-                      class="w-5 h-5 lg:w-8 lg:h-8"
-                    />
-                  </div>
-                  <div class="text-right">
-                    <div class="text-[10px] lg:text-[12px]">أحصل عليه على</div>
-                    <div class="text-[10px] lg:text-[12px] font-bold">
-                      Google play
-                    </div>
-                  </div>
-                </a>
-                <a
-                  href="#"
-                  class="w-[45%] sm:w-[40%] md:w-[auto] bg-white/30 backdrop-blur-sm text-white rounded-xl hover:bg-white/50 md:px-5 px-3 py-2 flex items-center justify-center gap-3 transition font-semibold shadow-lg"
-                >
-                  <i class="fab fa-apple text-4xl"></i>
-                  <div class="text-right">
-                    <div class="text-[10px] lg:text-[12px]">تنزيل من</div>
-                    <div class="text-[10px] lg:text-[12px] font-bold">
-                      متجر التطبيقات
-                    </div>
-                  </div>
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -550,8 +517,10 @@
       id="download"
       class="py-12 md:py-16 px-2 md:px-20 bg-white border-2 border-gray-200 border-l-0 border-r-0 my-12"
     >
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-8 md:mb-12">
+      <div
+        class="container mx-auto md:mx-0 px-4 md:flex md:flex-col md:items-start md:justify-start md:w-[50%]"
+      >
+        <div class="text-center md:text-start mb-8 md:mb-12">
           <h2
             class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
           >
@@ -696,19 +665,7 @@
                 </a>
               </div>
             </div>
-            <div class="flex md:items-center justify-center gap-10">
-              <a href="#" class="text-white hover:text-orange-400 transition"
-                >الشروط والاحكام</a
-              >
-              <a href="#" class="text-white hover:text-orange-400 transition"
-                >سياسة الخصوصية</a
-              >
-            </div>
-          </div>
-          <div
-            class="pt-8 text-center flex flex-col md:flex-row items-center justify-center md:justify-between"
-          >
-            <div class="flex items-center justify-center mb-4">
+            <div class="flex md:items-center justify-center gap-2">
               <div
                 class="icon flex items-center justify-center border border-[#e5e5e5] rounded-full w-10 h-10"
               >
@@ -741,7 +698,27 @@
 
               <p>الرقم الموحد للدعم الفني والاستفسارات 920009771</p>
             </div>
-            <p class="text-white">© 2025 جميع الحقوق محفوظة - كيان</p>
+          </div>
+
+          <div
+            class="pt-8 text-center flex flex-col md:flex-row items-center justify-center md:justify-between"
+          >
+            <p class="text-white hidden md:block">
+              © 2025 جميع الحقوق محفوظة - كيان
+            </p>
+            <div class="flex items-center justify-center mb-4">
+              <div>
+                <a href="#" class="text-white hover:text-orange-400 transition"
+                  >الشروط والاحكام</a
+                >
+                <a href="#" class="text-white hover:text-orange-400 transition"
+                  >سياسة الخصوصية</a
+                >
+              </div>
+            </div>
+            <p class="text-white block md:hidden">
+              © 2025 جميع الحقوق محفوظة - كيان
+            </p>
           </div>
         </div>
       </div>

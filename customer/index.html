@@ -203,13 +203,18 @@
 
         <!-- Phone Images - Positioned at bottom, partially hidden -->
         <div
-          class="absolute -bottom-12 lg:bottom-0 left-0 flex items-start justify-center md:justify-start px-4 md:pr-20"
+          class="absolute bottom-0 left-0 flex items-start justify-center md:justify-start px-4 md:pr-20"
         >
           <div class="relative">
             <img
               src="../assets/imgs/header/phone.png"
               alt="Kian App Screenshot"
-              class="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain"
+              class="w-full max-w-sm hidden md:block md:max-w-md lg:max-w-lg h-auto object-contain"
+            />
+            <img
+              src="../assets/imgs/header/phone-mob.png"
+              alt="Kian App Screenshot"
+              class="w-full max-w-sm block md:hidden md:max-w-md lg:max-w-lg h-auto object-contain"
             />
           </div>
         </div>
@@ -219,7 +224,7 @@
     <!-- Why Kian Section -->
     <section
       id="why-kian"
-      class="section-curved-top py-12 md:py-16 px-2 md:px-20"
+      class="section-curved-top py-12 pb-8 md:py-16 px-2 md:px-20"
     >
       <div class="container mx-auto px-4">
         <div
@@ -237,11 +242,13 @@
             سهل، موثوق، ومجزي – لماذا تختار كيان؟
           </h2>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           <!-- Card 1 -->
-          <div class="bg-white rounded-xl p-5 md:p-6 transition">
+          <div
+            class="bg-white rounded-xl p-2 md:p-5 md:p-6 transition flex flex-row md:flex-col gap-3 md:gap-1"
+          >
             <div
-              class="w-14 h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
+              class="why-circle md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
             >
               <img
                 src="../assets/imgs/svgs/car.svg"
@@ -249,18 +256,24 @@
                 class="w-9 h-9"
               />
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-              طلبات سريعة ومستمرة
-            </h3>
-            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-              استقبل الطلبات بحسب موقعك ووقتك. وحقق دخلاً أعلى بفضل نظام توزيع
-              الطلبات الذكي.
-            </p>
+            <div>
+              <h3
+                class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3"
+              >
+                طلبات سريعة ومستمرة
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                استقبل الطلبات بحسب موقعك ووقتك. وحقق دخلاً أعلى بفضل نظام توزيع
+                الطلبات الذكي.
+              </p>
+            </div>
           </div>
           <!-- Card 2 -->
-          <div class="bg-white rounded-xl p-5 md:p-6 transition">
+          <div
+            class="bg-white rounded-xl p-2 md:p-5 md:p-6 transition flex flex-row md:flex-col gap-3 md:gap-1"
+          >
             <div
-              class="w-14 h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
+              class="why-circle md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
             >
               <img
                 src="../assets/imgs/svgs/hand_money.svg"
@@ -268,18 +281,24 @@
                 class="w-9 h-9"
               />
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-              حوافز ومكافآت خاصة
-            </h3>
-            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-              استفد من الحوافز الأسبوعية، المكافآت، وبرامج التقدير المصممة
-              للأفضل الكبائن.
-            </p>
+            <div>
+              <h3
+                class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3"
+              >
+                حوافز ومكافآت خاصة
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                استفد من الحوافز الأسبوعية، المكافآت، وبرامج التقدير المصممة
+                للأفضل الكبائن.
+              </p>
+            </div>
           </div>
           <!-- Card 3 -->
-          <div class="bg-white rounded-xl p-5 md:p-6 transition">
+          <div
+            class="bg-white rounded-xl p-2 md:p-5 md:p-6 transition flex flex-row md:flex-col gap-3 md:gap-1"
+          >
             <div
-              class="w-14 h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
+              class="why-circle md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
             >
               <img
                 src="../assets/imgs/svgs/money.svg"
@@ -287,19 +306,25 @@
                 class="w-9 h-9"
               />
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-              أرباح واضحة وسحب فوري
-            </h3>
-            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-              تابع أرباحك بشكل مباشر من التطبيق. واسحبها بسهولة في أي وقت وبأمان
-              كامل.
-            </p>
+            <div>
+              <h3
+                class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3"
+              >
+                أرباح واضحة وسحب فوري
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                تابع أرباحك بشكل مباشر من التطبيق. واسحبها بسهولة في أي وقت
+                وبأمان كامل.
+              </p>
+            </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="bg-white rounded-xl p-5 md:p-6 transition">
+          <div
+            class="bg-white rounded-xl p-2 md:p-5 md:p-6 transition flex flex-row md:flex-col gap-3 md:gap-1"
+          >
             <div
-              class="w-14 h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
+              class="why-circle md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4"
             >
               <img
                 src="../assets/imgs/svgs/support.svg"
@@ -307,13 +332,17 @@
                 class="w-9 h-9"
               />
             </div>
-            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-              دعم متواصل على مدار الساعة
-            </h3>
-            <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-              فريق الدعم في كيان جاهز لمساعدتك في أي وقت لضمان تجربة قيادة مريحة
-              وسلسة.
-            </p>
+            <div>
+              <h3
+                class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3"
+              >
+                دعم متواصل على مدار الساعة
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                فريق الدعم في كيان جاهز لمساعدتك في أي وقت لضمان تجربة قيادة
+                مريحة وسلسة.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -321,7 +350,7 @@
 
     <!-- FAQ Section -->
     <section
-      class="py-12 md:py-24 bg-[#f8f8f8] px-2 md:px-20 faq overflow-hidden my-12"
+      class="py-12 md:py-24 bg-[#f8f8f8] px-2 md:px-20 faq overflow-hidden my-6"
     >
       <h2
         class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-8 md:mb-12"
@@ -733,7 +762,7 @@
         <div
           class="pt-8 text-center flex flex-col md:flex-row items-center justify-center md:justify-between"
         >
-          <div class="flex items-center justify-center mb-4">
+          <div class="flex items-center justify-center mb-4 md:gap-2">
             <div
               class="icon flex items-center justify-center border border-[#e5e5e5] rounded-full w-10 h-10"
             >
