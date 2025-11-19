@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log('FAQ Video System Initialized');
     // Drawer Menu Toggle
     $('#menu-toggle').on('click', function () {
         $('#drawer-menu').addClass('active');
@@ -32,17 +33,35 @@ $(document).ready(function () {
 
     // FAQ Accordion
     $('.faq-question').on('click', function () {
+        console.log('FAQ item clicked');
         var $item = $(this).closest('.faq-item');
         var $answer = $item.find('.faq-answer');
         var $icon = $(this).find('svg');
         var hasVideo = $(this).data("video-card") === true;
         var isActive = $item.hasClass("active-faq");
+        console.log('Has video:', hasVideo, 'Is active:', isActive);
 
         // Close all other items
         $('.faq-item').not($item).find('.faq-answer').slideUp(300);
         $('.faq-item').not($item).find('svg').removeClass('rotate-180');
         $('.faq-item').not($item).removeClass('active-faq');
-
+        
+        // Hide all mobile videos with exit animation (only on mobile)
+        if (window.innerWidth < 768) {
+            var $activeMobileVideo = $('.video-container:not(.desktop-video).active');
+            if ($activeMobileVideo.length) {
+                // Add exiting class for animation
+                $activeMobileVideo.addClass('exiting');
+                
+                // After animation completes, hide and clean up
+                setTimeout(function() {
+                    $activeMobileVideo.hide().removeClass('active exiting');
+                }, 400);
+            } else {
+                // No active video, just hide any remaining ones
+                $('.video-container:not(.desktop-video)').hide().removeClass('active exiting');
+            }
+        }
 
         // Toggle current item
         if ($answer.is(':visible')) {
@@ -53,20 +72,123 @@ $(document).ready(function () {
             $answer.slideDown(300);
             $item.addClass('active-faq')
             $icon.addClass('rotate-180');
+            
+            // Show mobile video with animation if it has video (only on mobile)
+            if (hasVideo && window.innerWidth < 768) {
+                var $mobileVideo = $item.nextAll('.video-container').first();
+                $mobileVideo.slideDown(300).addClass('active');
+            }
         }
-        // Show/hide video based on which card is active
-        if (!isActive && hasVideo) {
-            $(".video-container").addClass("active");
-        } else {
-            $(".video-container").removeClass("active");
+        
+        // Handle desktop video switching (only on desktop)
+        if (window.innerWidth >= 768) {
+            if (!isActive && hasVideo) {
+                // Get the video source from the mobile video container next to this item
+                var $mobileVideo = $item.nextAll('.video-container').first();
+                var videoSrc = $mobileVideo.find('video').attr('src');
+                
+                console.log('Switching to desktop video:', videoSrc);
+                
+                var $desktopContainer = $('#main-video-container');
+                
+                // If there's currently an active video, animate it out first
+                if ($desktopContainer.hasClass('active')) {
+                    $desktopContainer.addClass('exiting');
+                    
+                    // After exit animation, switch to new video
+                    setTimeout(function() {
+                        $desktopContainer.removeClass('exiting active');
+                        
+                        // Update desktop video source
+                        $('#main-video-container video').attr('src', videoSrc);
+                        
+                        // Add loading state and animate new video in
+                        $desktopContainer.addClass('loading');
+                        setTimeout(function() {
+                            $desktopContainer.removeClass('loading').addClass('active');
+                            console.log('Desktop video activated with exit animation');
+                        }, 100);
+                    }, 500);
+                } else {
+                    // No current video, just animate in the new one
+                    $desktopContainer.addClass('loading');
+                    $('#main-video-container video').attr('src', videoSrc);
+                    
+                    setTimeout(function() {
+                        $desktopContainer.removeClass('loading').addClass('active');
+                        console.log('Desktop video activated');
+                    }, 300);
+                }
+                
+            } else if (isActive) {
+                // If clicking the active item, hide the desktop video with exit animation
+                var $desktopContainer = $('#main-video-container');
+                $desktopContainer.addClass('exiting');
+                
+                setTimeout(function() {
+                    $desktopContainer.removeClass('exiting active');
+                    console.log('Desktop video deactivated with exit animation');
+                }, 500);
+            }
         }
     });
     // Initialize video visibility on page load
-    if ($(".faq-question").data("video-card") === true) {
-        $(".video-container").addClass("active");
-    } else {
-        $(".video-container").removeClass("active");
+    // Hide desktop video by default
+    $('#main-video-container').removeClass('active');
+    
+    // Hide all mobile videos initially
+    $('.video-container:not(.desktop-video)').hide().removeClass('active');
+    
+    // Show video only if there's an active FAQ item with video
+    var $activeFaq = $('.faq-item.active-faq');
+    if ($activeFaq.length && $activeFaq.find('.faq-question').data('video-card') === true) {
+        var $mobileVideo = $activeFaq.nextAll('.video-container').first();
+        var videoSrc = $mobileVideo.find('video').attr('src');
+        
+        // Show mobile video for active item (only on mobile)
+        if (window.innerWidth < 768) {
+            $mobileVideo.show().addClass('active');
+        }
+        
+        // Set desktop video source and show (only on desktop)
+        if (window.innerWidth >= 768) {
+            $('#main-video-container video').attr('src', videoSrc);
+            $('#main-video-container').addClass('active');
+        }
     }
+    // Handle responsive behavior on window resize
+    function handleResponsiveVideos() {
+        console.log('Handling responsive videos, window width:', window.innerWidth);
+        
+        if (window.innerWidth >= 768) {
+            // On desktop: hide mobile videos, show desktop logic
+            console.log('Desktop mode: hiding mobile videos');
+            $('.video-container:not(.desktop-video)').hide().removeClass('active');
+            
+            // Show desktop video if there's an active FAQ
+            var $activeFaq = $('.faq-item.active-faq');
+            if ($activeFaq.length && $activeFaq.find('.faq-question').data('video-card') === true) {
+                var $mobileVideo = $activeFaq.nextAll('.video-container').first();
+                var videoSrc = $mobileVideo.find('video').attr('src');
+                $('#main-video-container video').attr('src', videoSrc);
+                $('#main-video-container').addClass('active');
+                console.log('Desktop video activated');
+            }
+        } else {
+            // On mobile: hide desktop video, show mobile logic
+            console.log('Mobile mode: hiding desktop video');
+            $('#main-video-container').removeClass('active');
+            
+            // Show mobile video if there's an active FAQ
+            var $activeFaq = $('.faq-item.active-faq');
+            if ($activeFaq.length && $activeFaq.find('.faq-question').data('video-card') === true) {
+                var $mobileVideo = $activeFaq.nextAll('.video-container').first();
+                $mobileVideo.show().addClass('active');
+                console.log('Mobile video activated');
+            }
+        }
+    }
+
     // Animate on scroll
     function animateOnScroll() {
         $('.faq-item, .bg-white.rounded-xl').each(function () {
@@ -85,7 +207,11 @@ $(document).ready(function () {
     $('.faq-item, .bg-white.rounded-xl').addClass('opacity-0 translate-y-4 transition-all duration-700');
 
     $(window).on('scroll', animateOnScroll);
+    $(window).on('resize', handleResponsiveVideos); // Add resize handler
+    
+    // Initial calls
     animateOnScroll();
+    handleResponsiveVideos(); // Set initial responsive state
 
 
 
