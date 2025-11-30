@@ -72,5 +72,57 @@ $(document).ready(function () {
 
     $(window).on('scroll', animateOnScroll);
     animateOnScroll();
+    
+    // Language switcher injection
+    (function insertLangSwitcher() {
+        try {
+            const path = window.location.pathname;
+            let targetPath = null;
+            if (path.indexOf('/en/') !== -1) {
+                targetPath = path.replace('/en/', '/ar/');
+            } else if (path.indexOf('/ar/') !== -1) {
+                targetPath = path.replace('/ar/', '/en/');
+            } else {
+                if (path.startsWith('/en')) targetPath = path.replace('/en', '/ar');
+                else if (path.startsWith('/ar')) targetPath = path.replace('/ar', '/en');
+            }
+            if (!targetPath) return;
+            targetPath += window.location.search + window.location.hash;
+            const $btn = $(
+                '<a id="lang-switcher" class="ml-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 text-white hover:bg-white/10 transition" href="' +
+                    targetPath +
+                    '"><i class="fas fa-globe"></i><span class="ml-2">Arabic</span></a>'
+            );
+            const $navRight = $('nav .container .flex.items-center.justify-between');
+            if ($navRight.length) {
+                function updateNavLangButton() {
+                    const isDesktop = window.innerWidth >= 768;
+                    $navRight.find('#lang-switcher').remove();
+                    if (isDesktop) {
+                        $navRight.append($btn);
+                    }
+                }
+                updateNavLangButton();
+                $(window).on('resize.langSwitcher', updateNavLangButton);
+            }
+            const $drawer = $('#drawer-menu .px-6');
+            if ($drawer.length) {
+                $drawer.find('a[data-lang-link="true"]').remove();
+                const $link = $(
+                    '<a data-lang-link="true" href="' +
+                        targetPath +
+                        '" class="block text-black text-[16px] font-semibold py-2 flex items-center gap-2"><i class="fas fa-globe"></i><span>Arabic</span></a>'
+                );
+                const $ul = $drawer.find('ul.space-y-6');
+                if ($ul.length) {
+                    $ul.append($('<li>').append($link));
+                } else {
+                    $drawer.append($link);
+                }
+            }
+        } catch (err) {
+            console.warn('lang switcher injection failed', err);
+        }
+    })();
 });
 
