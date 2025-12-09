@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captin - Safe rides... Guaranteed service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-white px-2 md:px-5">
+    <!-- Header Wrapper with Navigation and Hero -->
+    <div class="header-wrapper px-2 md:px-20 py-5 mb-[250px] md:mb-12">
+      <!-- Navigation -->
+      <nav class="w-full">
+        <div class="container mx-auto px-4 py-4">
+          <div class="flex items-center justify-between">
+            <!-- Logo - left Side in RTL -->
+            <div class="flex items-center">
+              <img
+                src="../assets/imgs/logo.svg"
+                alt="Captin Logo"
+                class="w-[60px] h-[36px] md:w-[70px] md:h-[42px]"
+              />
+            </div>
+            <ul class="hidden md:flex items-center gap-8 text-white">
+              <li>
+                <a
+                  href="#home"
+                  class="hover:text-[#ff882e] transition text-base font-medium"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#why-captin"
+                  class="hover:text-[#ff882e] transition text-base font-medium"
+                  >Why Captin</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#download"
+                  class="hover:text-[#ff882e] transition text-base font-medium"
+                  >Download App</a
+                >
+              </li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-white">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Drawer Overlay -->
+      <div id="drawer-overlay" class="drawer-overlay"></div>
+
+      <!-- Drawer Menu -->
+      <div id="drawer-menu" class="drawer-menu">
+        <div class="bg-black flex items-center justify-between mb-8 px-10 py-5">
+          <span class="icon-logo text-[68px] text-[#ff882e]"></span>
+          <button id="close-menu" class="text-white text-2xl">×</button>
+        </div>
+        <div class="px-6">
+          <ul class="space-y-6 text-left flex-1 h-[80vw]">
+            <li>
+              <a
+                href="#home"
+                class="text-black text-[16px] font-semibold block py-2"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#why-captin"
+                class="text-black text-[16px] font-semibold block py-2"
+                >Why Captin</a
+              >
+            </li>
+            <li>
+              <a
+                href="#download"
+                class="text-black text-[16px] font-semibold block py-2"
+                >Download App</a
+              >
+            </li>
+          </ul>
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <p class="text-black font-bold text-sm text-center mb-6">
+              © 2025 All lefts reserved - Captin
+            </p>
+            <div class="flex gap-3">
+              <a
+                href="#"
+                class="flex-1 bg-black text-white rounded-lg md:px-5 px-3 py-2 flex items-center justify-center gap-4 hover:bg-gray-800 transition"
+              >
+                <img
+                  src="../assets/imgs/play.svg"
+                  alt="Google Play"
+                  class="w-8 h-8"
+                />
+                <div class="flex flex-col">
+                  <span class="text-[10px] lg:text-[12px]">Get it on</span>
+                  <span class="text-[10px] lg:text-[12px] font-bold"
+                    >Google play</span
+                  >
+                </div>
+              </a>
+              <a
+                href="#"
+                class="flex-1 bg-black text-white rounded-lg md:px-5 px-3 py-2 flex items-center justify-center gap-4 hover:bg-gray-800 transition"
+              >
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
+                  />
+                </svg>
+                <div class="flex flex-col">
+                  <span class="text-[10px] lg:text-[12px]">Download on</span>
+                  <span class="text-[10px] lg:text-[12px] font-bold"
+                    >App Store</span
+                  >
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="pt-6 pb-32 md:pb-40 relative w-full min-h-[600px] md:min-h-[550px]"
+      >
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="grid md:grid-cols-2 gap-8 items-center min-h-[500px]">
+            <!-- Image Content -->
+            <div class="relative order-2 md:order-1 z-10 h-[400px]">
+              <!-- Large Orange Rounded Shape -->
+              <div
+                class="man-pic w-full -bottom-5 sm:-bottom-12 md:-bottom-24 -left-6 md:left-0 h-[500px] max-w-md mx-auto rounded-[35px] p-6 absolute"
+              >
+                <!-- Main Image Placeholder -->
+                <div
+                  class="aspect-[3/4] flex items-start justify-center absolute bottom-10 md:-bottom-[14px] z-20 md:left-[15%]"
+                >
+                  <img
+                    src="../assets/imgs/header-captin/man.png"
+                    alt="Captin App Screenshot"
+                    class="w-full object-contain object-center h-[476px] md:h-[600px]"
+                  />
+                </div>
+              </div>
+              <!-- User Trust Banner -->
+              <div
+                class="absolute bottom-[18%] md:-bottom-0 -right-2 md:right-4 bg-white rounded-full px-4 py-1 shadow-2xl flex items-center gap-3 z-20"
+              >
+                <img src="../assets/imgs/svgs/star.svg" />
+                <div class="flex-1">
+                  <p class="text-sm font-semibold text-gray-900">
+                    Over 50,000 users trust us daily
+                  </p>
+                </div>
+                <div class="flex flex-row-reverse -space-x-2">
+                  <div
+                    class="w-8 h-8 rounded-full bg-[#ff882e] border-2 border-white text-white flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <!-- Icon from Tabler Icons by Paweł Kuna - https://github.com/tabler/tabler-icons/blob/master/LICENSE -->
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2m1-17.87a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-500 border-2 border-white z-10 overflow-hidden"
+                  >
+                    <img
+                      src="../assets/imgs/header-captin/img-1.jpg"
+                      class="w-full h-full"
+                    />
+                  </div>
+                  <div
+                    class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 border-2 border-white z-20 overflow-hidden"
+                  >
+                    <img
+                      src="../assets/imgs/header-captin/img-2.jpg"
+                      class="w-full h-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Text Content -->
+            <div class="text-white text-left order-1 md:order-2 z-20">
+              <h1
+                class="text-[21px] md:text-5xl lg:text-[44px] font-bold mb-8 md:mb-12 leading-tight"
+              >
+                Safe rides...
+                <span class="block mt-2 relative inline-block text-[#ff882e]">
+                  Guaranteed service
+                  <img
+                    src="../assets/imgs/svgs/hand-draw.svg"
+                    class="absolute -bottom-5 left-0 md:-bottom-10 md:left-[25%] w-[100%] md:w-[50%] rounded-full"
+                  />
+                </span>
+              </h1>
+              <p
+                class="text-[16px] md:text-[24px] text-[#DFE8DF] mb-4 leading-relaxed"
+              >
+                Trusted drivers, live tracking, and 24/7 support.
+              </p>
+              <button
+                id="signup-btn"
+                class="md:mb-4 bg-[#FF882E] hover:bg-[#FF882E]/80 transition flex items-center gap-2 text-white py-2 px-4 rounded-full scroll-animate scale-in"
+              >
+                <span
+                  class="text-[12px] md:text-[14px] font-semibold text-white"
+                  >Sign up to receive offers</span
+                >
+                <img src="../assets/imgs/fire.svg" alt="Fire" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Background Orange Shapes -->
+        <div class="hero-orange-shape-1"></div>
+        <div class="hero-orange-shape-2"></div>
+      </section>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registration-overlay">
+      <div
+        class="registration-modal border-t-4 md:border-4 border-[#ff882e]"
+        id="registration-modal"
+      >
+        <button class="modal-close" id="close-registration">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-illustration">
+          <img src="../assets/imgs/modals/like.svg" alt="Modal Send" />
+        </div>
+        <h2 class="modal-title">Sign up to receive the latest offers</h2>
+        <p class="modal-description">
+          Fill in your details to join our customer list and receive the best
+          discounts and offers as soon as they become available.
+        </p>
+        <form id="registration-form" class="modal-form">
+          <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <div class="phone-input-wrapper">
+              <div class="country-code">
+                <span class="saudi-flag"
+                  ><svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_272_15313)">
+                      <path
+                        d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z"
+                        fill="#6DA544"
+                      />
+                      <path
+                        d="M6.78125 14.3477C6.78125 15.2121 7.48203 15.9129 8.34645 15.9129H13.0421C13.0421 16.6332 13.6261 17.2172 14.3465 17.2172H15.9117C16.632 17.2172 17.216 16.6332 17.216 15.9129V14.3477H6.78125Z"
+                        fill="#F0F0F0"
+                      />
+                      <path
+                        d="M17.3462 6.7832V10.4354C17.3462 11.0108 16.8781 11.4789 16.3027 11.4789V13.0441C17.7412 13.0441 18.9114 11.8738 18.9114 10.4354V6.7832H17.3462Z"
+                        fill="#F0F0F0"
+                      />
+                      <path
+                        d="M6.12942 10.4354C6.12942 11.0108 5.66133 11.4789 5.08594 11.4789V13.0441C6.52439 13.0441 7.69462 11.8738 7.69462 10.4354V6.7832H6.12942V10.4354Z"
+                        fill="#F0F0F0"
+                      />
+                      <path
+                        d="M16.5652 6.7832H15V10.4354H16.5652V6.7832Z"
+                        fill="#F0F0F0"
+                      />
+                      <path
+                        d="M12.6505 8.87017C12.6505 9.01403 12.5334 9.13103 12.3896 9.13103C12.2458 9.13103 12.1287 9.01398 12.1287 8.87017V6.7832H10.5635V8.87017C10.5635 9.01403 10.4465 9.13103 10.3027 9.13103C10.1589 9.13103 10.0418 9.01398 10.0418 8.87017V6.7832H8.47656V8.87017C8.47656 9.87709 9.29575 10.6963 10.3027 10.6963C10.6905 10.6963 11.0501 10.5744 11.3462 10.3674C11.6422 10.5744 12.0019 10.6963 12.3896 10.6963C12.4677 10.6963 12.5445 10.6908 12.62 10.6812C12.5091 11.1382 12.0976 11.4789 11.607 11.4789V13.0441C13.0455 13.0441 14.2157 11.8738 14.2157 10.4354V8.87017V6.7832H12.6505V8.87017H12.6505Z"
+                        fill="#F0F0F0"
+                      />
+                      <path
+                        d="M10.8244 11.4785H8.47656V13.0437H10.8244V11.4785Z"
+                        fill="#F0F0F0"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_272_15313">
+                        <rect width="24" height="24" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <span>+966</span>
+              </div>
+              <input
+                type="tel"
+                id="phone-number"
+                name="phone"
+                placeholder="000000000"
+                maxlength="9"
+                required
+              />
+            </div>
+            <span class="error-message" id="phone-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <select id="city" name="city">
+              <option value="">Select a city</option>
+              <option value="riyadh">Riyadh</option>
+              <option value="jeddah">Jeddah</option>
+              <option value="dammam">Dammam</option>
+              <option value="khobar">Khobar</option>
+              <option value="makkah">Makkah</option>
+              <option value="madinah">Madinah</option>
+              <option value="taif">Taif</option>
+              <option value="abha">Abha</option>
+              <option value="tabuk">Tabuk</option>
+              <option value="buraidah">Buraidah</option>
+              <option value="khamis">Khamis Mushait</option>
+              <option value="hail">Hail</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="success-overlay">
+      <div class="success-modal border-4 border-[#ff882e]" id="success-modal">
+        <button class="modal-close" id="close-success">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="success-illustration">
+          <img src="../assets/imgs/modals/success.svg" alt="Success" />
+        </div>
+        <h2 class="success-title">
+          <span class="confetti">🎉</span>
+          Thank you!
+        </h2>
+        <p class="success-message">Registration successful.</p>
+        <p class="success-description">
+          You will receive exclusive offers and discounts tailored to you as
+          they become available.
+        </p>
+      </div>
+    </div>
+
+    <!-- Why Choose Our App Section -->
+    <section
+      id="why-captin"
+      class="section-curved-top py-24 md:py-16 px-2 md:px-20"
+    >
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-8 md:mb-12">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+          >
+            Why choose our app?
+          </h2>
+          <p class="text-base md:text-lg text-gray-600">
+            We provide a safe, fast, and easy transport experience for your
+            daily needs.
+          </p>
+        </div>
+        <div
+          class="flex flex-col-reverse md:flex-row gap-6 items-center justify-center"
+        >
+          <!-- Card 1: Trusted Drivers -->
+          <div
+            class="bg-white rounded-xl p-5 md:p-6 transition border border-[#ff882e] w-full md:w-[262px] flex flex-col items-center justify-center"
+          >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-md bg-[#ff882e] p-2 mb-3 md:mb-4"
+            >
+              <div
+                class="border border-white/40 border-b-0 flex items-center justify-center h-full rounded-md text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+                  <path
+                    fill="currentColor"
+                    d="M11 13v3q0 .425.288.713T12 17t.713-.288T13 16v-3h3q.425 0 .713-.288T17 12t-.288-.712T16 11h-3V8q0-.425-.288-.712T12 7t-.712.288T11 8v3H8q-.425 0-.712.288T7 12t.288.713T8 13zm1 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+              Instant easy request
+            </h3>
+            <p class="text-sm md:text-base text-gray-600 text-center">
+              Request your ride in seconds through a simple, fast interface.
+            </p>
+          </div>
+          <!-- Card 2: Live Tracking -->
+          <div
+            class="bg-white rounded-xl p-5 md:p-6 transition border border-[#ededed] w-full md:w-[262px] flex flex-col items-center justify-center"
+          >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-md bg-white shadow-md p-1 mb-3 md:mb-4"
+            >
+              <div
+                class="border border-[#ededed] p-1 flex items-center justify-center h-full rounded-md text-white"
+              >
+                <img src="../assets/imgs/svgs/map.svg" alt="map icon" />
+              </div>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+              Live tracking
+            </h3>
+            <p class="text-sm md:text-base text-gray-600 text-center">
+              Track the driver’s location in real time and know the exact
+              arrival time.
+            </p>
+          </div>
+          <!-- Card 3: Instant & Easy Request -->
+          <div
+            class="bg-white rounded-xl p-5 md:p-6 transition border border-[#ededed] w-full md:w-[262px] flex flex-col items-center justify-center"
+          >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-md bg-white shadow-md p-1 mb-3 md:mb-4"
+            >
+              <div
+                class="border border-[#ededed] p-1 flex items-center justify-center h-full rounded-md text-white"
+              >
+                <img src="../assets/imgs/svgs/users.svg" alt="map icon" />
+              </div>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+              Trusted drivers
+            </h3>
+            <p class="text-sm md:text-base text-gray-600 text-center">
+              Verified drivers and ratings to ensure a safe and comfortable
+              ride.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Commutes Section -->
+    <section
+      class="py-12 md:py-16 px-2 md:px-20 bg-white relative overflow-hidden"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- App Screenshot -->
+          <div class="order-1 md:order-2 flex items-center justify-center">
+            <div class="relative z-10 daily">
+              <img src="../assets/imgs/captin/phone.png" width="50%" />
+              <img
+                src="../assets/imgs/captin/1.png"
+                class="absolute left-3 top-[25%]"
+              />
+              <img
+                src="../assets/imgs/captin/2.png"
+                class="absolute left-12 bottom-0"
+              />
+            </div>
+          </div>
+          <!-- Text Content -->
+          <div class="text-left order-2 md:order-1">
+            <h2 class="text-2xl md:text-[38px] font-bold text-gray-900 mb-6">
+              We accompany your
+
+              <span class="relative"
+                >daily commutes
+                <img
+                  src="../assets/imgs/svgs/hand-draw.svg"
+                  alt=""
+                  class="absolute left-8 -bottom-2"
+                />
+              </span>
+            </h2>
+            <p class="text-lg md:text-[20px] text-black leading-relaxed">
+              Our app offers a smart, easy way to move around your city without
+              hassle. Request a ride in seconds and a verified driver will reach
+              you quickly. Follow the car on the map in real time and check
+              arrival time and route before you start.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section
+      id="download"
+      class="py-12 md:py-16 px-2 md:px-20 bg-white border-2 border-gray-200 border-l-0 border-r-0 my-12"
+    >
+      <div
+        class="container mx-auto md:mx-0 px-4 md:flex md:flex-col md:items-start md:justify-start md:w-[50%]"
+      >
+        <div class="text-center md:text-start mb-8 md:mb-12">
+          <h2
+            class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+          >
+            Download the app and start your journey easily
+          </h2>
+          <p class="text-base md:text-[18px] max-w-3xl mx-auto leading-relaxed">
+            Download the app now and enjoy a fast and easy transport experience.
+            Request your ride in seconds, track the driver live on the map, and
+            choose the payment method that suits you. Arrive at your destination
+            comfortably and safely every time.
+          </p>
+        </div>
+        <!-- App Download Buttons -->
+        <div class="flex flex-row items-center justify-center gap-4">
+          <a
+            href="#"
+            class="bg-black text-white rounded-lg md:px-5 px-3 py-2 flex items-center justify-center gap-4 hover:bg-gray-800 transition"
+          >
+            <img
+              src="../assets/imgs/play.svg"
+              alt="Google Play"
+              class="w-8 h-8"
+            />
+            <div class="flex flex-col">
+              <span class="text-[10px] lg:text-[12px]">Get it on</span>
+              <div class="text-[10px] lg:text-[12px] font-semibold">
+                Google Play
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="bg-black text-white rounded-lg md:px-5 px-3 py-2 flex items-center justify-center gap-4 hover:bg-gray-800 transition"
+          >
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"
+              />
+            </svg>
+            <div class="flex flex-col">
+              <span class="text-[10px] lg:text-[12px]">Download on</span>
+              <div class="text-[10px] lg:text-[12px] font-bold">App Store</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-curved-top bg-white text-white pt-10 md:py-12 mt-12">
+      <div class="footer-bg py-10">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div>
+              <div class="text-start mb-4">
+                <span class="icon-logo text-[68px]"></span>
+              </div>
+              <p class="text-white font-semibold mb-6 text-[15px] md:w-[80%]">
+                We aim to make urban travel practical and safe. We strive to
+                provide a smooth user experience with fast booking, live
+                tracking of trips and drivers, and flexible payment options that
+                suit everyone.
+              </p>
+              <div class="flex justify-start gap-2 mb-6">
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full border border-[#e5e5e5] flex items-center justify-center transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <!-- Icon from coolicons by Kryston Schwarze - https://creativecommons.org/licenses/by/4.0/ -->
+                    <path
+                      fill="currentColor"
+                      d="M13 21H9V9h4v2a4.618 4.618 0 0 1 3.525-1.763A4.5 4.5 0 0 1 21 13.75V21h-4v-6.75a2.265 2.265 0 0 0-2.247-1.944A1.815 1.815 0 0 0 13 14.25V21Zm-6 0H3V9h4v12ZM5 7a2 2 0 1 1 0-4a2 2 0 0 1 0 4Z"
+                    />
+                  </svg>
+                </a>
+
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full border border-[#e5e5e5] flex items-center justify-center transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 14 14"
+                  >
+                    <!-- Icon from Prime Icons by PrimeTek - https://github.com/primefaces/primeicons/blob/master/LICENSE -->
+                    <g fill="none">
+                      <g clip-path="url(#SVGG1Ot4cAD)">
+                        <path
+                          fill="currentColor"
+                          d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="SVGG1Ot4cAD">
+                          <path fill="#fff" d="M0 0h14v14H0z" />
+                        </clipPath>
+                      </defs>
+                    </g>
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full border border-[#e5e5e5] flex items-center justify-center transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full border border-[#e5e5e5] flex items-center justify-center transition"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                  >
+                    <!-- Icon from Remix Icon by Remix Design - https://github.com/Remix-Design/RemixIcon/blob/master/License -->
+                    <path
+                      fill="currentColor"
+                      d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="flex md:items-center justify-center gap-2">
+              <div
+                class="icon flex items-center justify-center border border-[#e5e5e5] rounded-full w-10 h-10"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <!-- Icon from Basil by Craftwork - https://creativecommons.org/licenses/by/4.0/ -->
+                  <mask id="SVGlgxcXbAS" fill="#fff">
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.184 21.331a.4.4 0 0 0 .487.494l4.607-1.204a10 10 0 0 0 4.76 1.207h.004c5.486 0 9.958-4.446 9.958-9.912a9.83 9.83 0 0 0-2.914-7.011A9.92 9.92 0 0 0 12.042 2c-5.486 0-9.958 4.446-9.958 9.911c0 1.739.458 3.447 1.33 4.954zM8.886 7.17c.183.005.386.015.579.443c.128.285.343.81.519 1.238c.137.333.249.607.277.663c.065.128.104.275.02.448l-.028.058c-.068.14-.116.24-.23.37l-.143.17c-.085.104-.17.206-.242.278c-.129.128-.262.266-.114.522s.668 1.098 1.435 1.777a6.6 6.6 0 0 0 1.903 1.2q.105.045.17.076c.257.128.41.108.558-.064c.149-.173.643-.749.817-1.005c.168-.256.34-.216.578-.128c.238.089 1.504.71 1.761.837l.143.07c.179.085.3.144.352.23c.064.109.064.62-.148 1.222c-.218.6-1.267 1.176-1.742 1.22l-.135.016c-.436.052-.988.12-2.956-.655c-2.426-.954-4.027-3.32-4.35-3.799l-.053-.076l-.005-.008c-.148-.197-1.049-1.402-1.049-2.646c0-1.19.587-1.81.854-2.092l.047-.05a.95.95 0 0 1 .687-.32c.173 0 .347 0 .495.005"
+                      clip-rule="evenodd"
+                    />
+                  </mask>
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    stroke="currentColor"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2.184 21.331a.4.4 0 0 0 .487.494l4.607-1.204a10 10 0 0 0 4.76 1.207h.004c5.486 0 9.958-4.446 9.958-9.912a9.83 9.83 0 0 0-2.914-7.011A9.92 9.92 0 0 0 12.042 2c-5.486 0-9.958 4.446-9.958 9.911c0 1.739.458 3.447 1.33 4.954zM8.886 7.17c.183.005.386.015.579.443c.128.285.343.81.519 1.238c.137.333.249.607.277.663c.065.128.104.275.02.448l-.028.058c-.068.14-.116.24-.23.37l-.143.17c-.085.104-.17.206-.242.278c-.129.128-.262.266-.114.522s.668 1.098 1.435 1.777a6.6 6.6 0 0 0 1.903 1.2q.105.045.17.076c.257.128.41.108.558-.064c.149-.173.643-.749.817-1.005c.168-.256.34-.216.578-.128c.238.089 1.504.71 1.761.837l.143.07c.179.085.3.144.352.23c.064.109.064.62-.148 1.222c-.218.6-1.267 1.176-1.742 1.22l-.135.016c-.436.052-.988.12-2.956-.655c-2.426-.954-4.027-3.32-4.35-3.799l-.053-.076l-.005-.008c-.148-.197-1.049-1.402-1.049-2.646c0-1.19.587-1.81.854-2.092l.047-.05a.95.95 0 0 1 .687-.32c.173 0 .347 0 .495.005Z"
+                    clip-rule="evenodd"
+                    mask="url(#SVGlgxcXbAS)"
+                  />
+                </svg>
+              </div>
+
+              <p class="text-[15px]">
+                Support & Inquiries Hotline
+                <span class="font-semibold">920009771</span>
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="pt-8 text-center flex flex-col md:flex-row items-center justify-center md:justify-between"
+          >
+            <p class="text-white hidden md:block">
+              © 2025 All rights reserved - Kiian
+            </p>
+            <div class="flex items-center justify-center mb-4">
+              <div>
+                <a href="#" class="text-white hover:text-orange-400 transition"
+                  >Terms & Conditions</a
+                >
+                <a href="#" class="text-white hover:text-orange-400 transition"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+            <p class="text-white block md:hidden">
+              © 2025 All rights reserved - Kiian
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
